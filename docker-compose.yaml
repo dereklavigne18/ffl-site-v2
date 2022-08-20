@@ -1,0 +1,24 @@
+---
+version: "3.0"
+
+services:
+
+  ############################################
+  #
+  # Prod and Dev Services
+  #
+  ############################################
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ffl-site-v2
+    entrypoint: ["yarn", "start"]
+    ports:
+      - "5001:3000"
+    networks:
+      - earth
+
+networks:
+  earth:
+    external: True
