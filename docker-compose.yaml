@@ -1,6 +1,10 @@
 ---
 version: "3.0"
 
+x-build: &x-build
+  context: .
+  dockerfile: Dockerfile
+
 services:
 
   ############################################
@@ -10,14 +14,30 @@ services:
   ############################################
   site:
     build:
-      context: .
-      dockerfile: Dockerfile
+      <<: *x-build
+      args:
+        NODE_ENV: production
     image: ffl-site-v2
-    entrypoint: ["yarn", "start"]
+    entrypoint: ["yarn", "start"]  # Likely need to change this entrypoint for prod
     ports:
       - "5001:3000"
     networks:
       - earth
+
+  site-dev:
+    build:
+      <<: *x-build
+      args:
+        NODE_ENV: development
+    image: ffl-site-v2-dev
+    entrypoint: ["yarn", "--modules-folder", "/etc/ffl-api", "start"]
+    ports:
+      - "5001:3000"
+    networks:
+      - earth
+    volumes:
+      - .:/app:rw
+
 
 networks:
   earth:
