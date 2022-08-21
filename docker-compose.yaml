@@ -30,7 +30,7 @@ services:
       args:
         NODE_ENV: development
     image: ffl-site-v2-dev
-    entrypoint: ["yarn", "--modules-folder", "/etc/ffl-api", "start"]
+    entrypoint: ["yarn", "--modules-folder", "/etc/ffl-site", "start"]
     ports:
       - "5001:3000"
     networks:

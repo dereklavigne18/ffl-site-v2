@@ -74,7 +74,7 @@
     "lint": "yarn run link-modules && yarn run eslint src",
     "lint:fix": "yarn run link-modules && yarn run eslint --fix src",
     "lint:css": "yarn run link-modules && stylelint src/**/*.css",
-    "link-modules": "rm /app/node_modules && ln -s /etc/ffl-api/node_modules /app/node_modules",
+    "link-modules": "rm /app/node_modules && ln -s /etc/ffl-site/node_modules /app/node_modules",
     "generate": "yarn run link-modules && plop --plopfile internals/generators/plopfile.ts",
     "prepare": "yarn run link-modules && husky install",
     "prettify": "yarn run link-modules && prettier --write",
