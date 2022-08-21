@@ -63,7 +63,7 @@
     "web-vitals": "2.1.2"
   },
   "scripts": {
-    "start": "yarn run link-modules && react-scripts start",
+    "start": "yarn run link-modules && WATCHPACK_POLLING=true react-scripts start",
     "build": "yarn run link-modules && react-scripts build",
     "test": "yarn run link-modules && react-scripts test",
     "eject": "yarn run link-modules && react-scripts eject",
@@ -74,7 +74,7 @@
     "lint": "yarn run link-modules && yarn run eslint src",
     "lint:fix": "yarn run link-modules && yarn run eslint --fix src",
     "lint:css": "yarn run link-modules && stylelint src/**/*.css",
-    "link-modules": "ln -s /etc/ffl-api/node_modules /app/node_modules",
+    "link-modules": "rm /app/node_modules && ln -s /etc/ffl-api/node_modules /app/node_modules",
     "generate": "yarn run link-modules && plop --plopfile internals/generators/plopfile.ts",
     "prepare": "yarn run link-modules && husky install",
     "prettify": "yarn run link-modules && prettier --write",
