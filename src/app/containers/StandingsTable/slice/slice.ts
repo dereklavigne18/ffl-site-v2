@@ -17,7 +17,7 @@ const slice = createSlice({
     },
     setTeamStandings(state, action: PayloadAction<any>) {
       state.teamStandings = action.payload;
-    }
+    },
   },
 });
 

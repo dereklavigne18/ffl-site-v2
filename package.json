@@ -78,6 +78,7 @@
     "generate": "yarn run link-modules && plop --plopfile internals/generators/plopfile.ts",
     "prepare": "yarn run link-modules && husky install",
     "prettify": "yarn run link-modules && prettier --write",
+    "reformat": "yarn run lint:fix && yarn run prettify",
     "extract-messages": "yarn run link-modules && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js"
   },
   "browserslist": {

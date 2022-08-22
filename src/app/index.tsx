@@ -21,7 +21,6 @@ import { StandingsPage } from './pages/StandingsPage/Loadable';
 import { NavBar, NavItem } from './components/Nav/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 
-
 export function App() {
   const { i18n } = useTranslation();
   return (
@@ -31,7 +30,10 @@ export function App() {
         defaultTitle="FFL"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="The Fanciest Fantasy Football League around" />
+        <meta
+          name="description"
+          content="The Fanciest Fantasy Football League around"
+        />
       </Helmet>
 
       <NavBar>

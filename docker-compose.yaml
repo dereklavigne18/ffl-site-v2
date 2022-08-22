@@ -62,6 +62,10 @@ services:
     stdin_open: true  # Allow runner to interact with command
     tty: true
 
+  reformat:
+    <<: *dev-tool
+    entrypoint: ["yarn", "--modules-folder", "/etc/ffl-site", "reformat"]
+
 
 networks:
   bubble:
