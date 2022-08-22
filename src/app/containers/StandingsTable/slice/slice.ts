@@ -15,6 +15,9 @@ const slice = createSlice({
     setIsLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
+    setTeamStandings(state, action: PayloadAction<any>) {
+      state.teamStandings = action.payload;
+    }
   },
 });
 

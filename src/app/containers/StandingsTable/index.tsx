@@ -9,7 +9,7 @@ import styled from 'styled-components/macro';
 
 import { useStandingsTableSlice } from './slice';
 import { sagaTypes } from './slice/saga';
-import { selectAreStandingsLoading } from './slice/selectors';
+import { selectAreStandingsLoading, selectTeamStandings } from './slice/selectors';
 
 interface Props {}
 
@@ -20,11 +20,14 @@ export const StandingsTable = memo((props: Props) => {
 
   // Load state
   const isLoading = useSelector(selectAreStandingsLoading);
+  const teamStandings = useSelector(selectTeamStandings);
+  console.log(teamStandings);
 
   return (
     <Div>
-      hello world
-      <Div>{isLoading ? "Loading..." : "Standings"}</Div>
+      {isLoading
+        ? <Div>"Loading..."</Div>
+        : teamStandings.map(team =><Div>{team.teamName}</Div>)}
       <button onClick={() => dispatch({ type: sagaTypes.LOAD_STANDINGS })}>Load Standings</button>
     </Div>
   );
