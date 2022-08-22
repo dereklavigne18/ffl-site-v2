@@ -1,3 +1,4 @@
+import { StandingsTableState } from 'app/containers/StandingsTable/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 
@@ -5,5 +6,6 @@
   You have to declare them here manually
 */
 export interface RootState {
+  standingsTable?: StandingsTableState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
