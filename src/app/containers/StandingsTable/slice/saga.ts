@@ -1,20 +1,27 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+
+import { standingsPayload } from 'app/samplePayloads/standingsPayload';
+
 import slice from './slice';
 
 const { setIsLoading, setTeamStandings } = slice.actions;
 
 async function fetchTeamStandings() {
   return new Promise((resolve, reject) => {
-    resolve([
-      {
-        rank: 1,
-        teamName: 'Eggies',
-        ownerName: 'Derek',
-        wins: '5',
-        losses: '6',
-        ties: '2',
-      },
-    ]);
+    resolve(standingsPayload);
+  });
+}
+
+function denormalizeStandingsPayload({ payload }) {
+  return payload['data']['standings']['records'].map(r => {
+    return {
+      rank: r.rank,
+      teamName: r.team.name,
+      ownerName: r.team.owner.name,
+      wins: r.record.wins,
+      losses: r.record.losses,
+      ties: r.record.ties,
+    };
   });
 }
 
@@ -23,7 +30,9 @@ function* loadStandings() {
 
   try {
     const response = yield call(() => fetchTeamStandings());
-    yield put(setTeamStandings(response));
+    yield put(
+      setTeamStandings(denormalizeStandingsPayload({ payload: response })),
+    );
   } catch (e) {} // In the future we'll want to handle this with a user prompt
 
   yield put(setIsLoading(false));

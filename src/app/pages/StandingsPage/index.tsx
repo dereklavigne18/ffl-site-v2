@@ -13,7 +13,7 @@ interface Props {}
 export const StandingsPage = memo((props: Props) => {
   return (
     <Div>
-      <StandingsTable />
+      <StandingsTable year={2018} />
     </Div>
   );
 });
