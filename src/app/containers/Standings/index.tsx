@@ -1,13 +1,13 @@
 /**
  *
- * StandingsTable
+ * Standings
  *
  */
 import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components/macro';
 
-import { useStandingsTableSlice } from './slice';
+import { useStandingsSlice } from './slice';
 import { loadStandings } from './slice/actions';
 import {
   selectAreStandingsLoading,
@@ -18,9 +18,9 @@ interface Props {
   year: number;
 }
 
-export const StandingsTable = memo(({ year }: Props) => {
+export const Standings = memo(({ year }: Props) => {
   // Register state and store and get the dispatcher
-  useStandingsTableSlice();
+  useStandingsSlice();
   const dispatch = useDispatch();
 
   // On render we need to fetch the standings to display
@@ -34,6 +34,7 @@ export const StandingsTable = memo(({ year }: Props) => {
 
   return (
     <Div>
+      <Div>Year: { year }</Div>
       {isLoading ? (
         <Div>"Loading..."</Div>
       ) : (

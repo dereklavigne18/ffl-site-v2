@@ -42,6 +42,6 @@ export const sagaTypes = {
   LOAD_STANDINGS: 'LOAD_STANDINGS',
 };
 
-export function* standingsTableSaga() {
+export function* standingsSaga() {
   yield takeLatest(sagaTypes.LOAD_STANDINGS, loadStandings);
 }

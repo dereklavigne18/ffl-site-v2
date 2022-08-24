@@ -3,14 +3,14 @@ import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from 'types';
 import { initialState } from './slice';
 
-const selectSlice = (state: RootState) => state.standingsTable || initialState;
+const selectSlice = (state: RootState) => state.standings || initialState;
 
-const selectStandingsTable = createSelector([selectSlice], state => state);
+const selectStandings = createSelector([selectSlice], state => state);
 export const selectTeamStandings = createSelector(
-  [selectStandingsTable],
+  [selectStandings],
   state => state.teamStandings,
 );
 export const selectAreStandingsLoading = createSelector(
-  [selectStandingsTable],
+  [selectStandings],
   state => state.isLoading,
 );

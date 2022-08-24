@@ -8,7 +8,7 @@ interface TeamRecord {
   ties: number;
 }
 
-export interface StandingsTableState {
+export interface StandingsState {
   teamStandings: TeamRecord[];
   isLoading: boolean;
 }

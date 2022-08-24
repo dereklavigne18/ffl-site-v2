@@ -1,15 +1,15 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 
-import { StandingsTableState } from './types';
+import { StandingsState } from './types';
 
-export const initialState: StandingsTableState = {
+export const initialState: StandingsState = {
   teamStandings: [],
   isLoading: false,
 };
 
 const slice = createSlice({
-  name: 'standingsTable',
+  name: 'standings',
   initialState,
   reducers: {
     setIsLoading(state, action: PayloadAction<boolean>) {
