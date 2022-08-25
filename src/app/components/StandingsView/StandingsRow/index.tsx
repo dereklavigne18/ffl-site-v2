@@ -1,36 +1,27 @@
 /**
  *
- * StandingsTable
+ * StandingsRow
  *
  */
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
-interface TeamRecord {
-  rank: number,
-  teamName: string,
-  ownerName: string,
-  wins: number,
-  losses: number,
-  ties: number,
-  pointsFor: number,
-  pointsAgainst: number,
-}
+import { TeamRecord } from '../types';
 
-interface Props {
-  teamRecords: TeamRecord[],
-}
 
-export const StandingsTable = memo(({ teamRecords }: Props) => {
-  const sortedRecords = teamRecords.sort((a, b) => {
-    if (a.rank < b.rank) return -1;
-    if (a.rank > b.rank) return 1;
-    return 0;
-  });
-
+export const StandingsRow = memo(({
+  rank,
+  teamName,
+  ownerName,
+  wins,
+  losses,
+  ties,
+  pointsFor,
+  pointsAgainst,
+}: TeamRecord) => {
   return (
     <Div>
-      sortedRecords.map((teamRecord) => <StandingsRow {...teamRecord} />)
+      {rank} {teamName} {ownerName} {wins}-{losses}-{ties} {pointsFor} {pointsAgainst}
     </Div>
   );
 });

@@ -21,6 +21,8 @@ function denormalizeStandingsPayload({ payload }) {
       wins: r.record.wins,
       losses: r.record.losses,
       ties: r.record.ties,
+      pointsFor: r.pointsFor,
+      pointsAgainst: r.pointsAgainst
     };
   });
 }

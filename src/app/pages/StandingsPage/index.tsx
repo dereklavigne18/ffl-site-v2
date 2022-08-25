@@ -6,7 +6,7 @@
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
-import { Standings } from '../../containers/Standings/Loadable';
+import { Standings } from '../../containers/StandingsContainer/Loadable';
 
 interface Props {}
 

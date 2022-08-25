@@ -1,4 +1,4 @@
-import { StandingsState } from 'app/containers/Standings/slice/types';
+import { StandingsState } from 'app/containers/StandingsContainer/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 

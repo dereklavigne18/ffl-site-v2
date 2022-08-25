@@ -5,7 +5,8 @@
  */
 import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
+
+import { StandingsView } from 'app/components/StandingsView/Loadable';
 
 import { useStandingsSlice } from './slice';
 import { loadStandings } from './slice/actions';
@@ -33,19 +34,11 @@ export const Standings = memo(({ year }: Props) => {
   const teamStandings = useSelector(selectTeamStandings);
 
   return (
-    <Div>
-      <Div>Year: { year }</Div>
+    <div>
+      <div>Year: { year }</div>
       {isLoading ? (
-        <Div>"Loading..."</Div>
-      ) : (
-        teamStandings.map(team => (
-          <Div key={team.rank}>
-            {team.rank} {team.teamName} {team.wins}-{team.losses}-{team.ties}
-          </Div>
-        ))
-      )}
-    </Div>
+        <div>"Loading..."</div>
+      ) : <StandingsView teamRecords={teamStandings} />}
+    </div>
   );
 });
-
-const Div = styled.div``;
