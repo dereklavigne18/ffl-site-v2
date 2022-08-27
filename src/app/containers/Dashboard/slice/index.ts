@@ -1,10 +1,9 @@
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
-
+import { dashboardSaga } from './saga';
 import slice from './slice';
-import { standingsSaga } from './saga';
 
-export const useStandingsSlice = () => {
+export const useDashboardSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer });
-  useInjectSaga({ key: slice.name, saga: standingsSaga });
+  useInjectSaga({ key: slice.name, saga: dashboardSaga });
   return { actions: slice.actions };
 };

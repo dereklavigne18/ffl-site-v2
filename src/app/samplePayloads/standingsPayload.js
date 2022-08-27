@@ -5,6 +5,7 @@ export const standingsPayload = {
         {
           rank: 1,
           team: {
+            id: 'YAHOO:1',
             name: 'Ajayi Swept The Division',
             owner: {
               name: 'Maclane Walsh',
@@ -21,6 +22,7 @@ export const standingsPayload = {
         {
           rank: 2,
           team: {
+            id: 'ESPN:1',
             name: 'Trash  Cans',
             owner: {
               name: 'Adam Ciampi',
@@ -37,6 +39,7 @@ export const standingsPayload = {
         {
           rank: 3,
           team: {
+            id: 'YAHOO:2',
             name: "Frank's  Dead",
             owner: {
               name: 'Ryan Sullivan',
@@ -53,6 +56,7 @@ export const standingsPayload = {
         {
           rank: 4,
           team: {
+            id: 'YAHOO:3',
             name: 'Flopper Gunner',
             owner: {
               name: 'Pat Semeter',
@@ -69,6 +73,7 @@ export const standingsPayload = {
         {
           rank: 5,
           team: {
+            id: 'ESPN:2',
             name: 'Team Barnas',
             owner: {
               name: 'Joe Barnas',
@@ -85,6 +90,7 @@ export const standingsPayload = {
         {
           rank: 6,
           team: {
+            id: 'YAHOO:4',
             name: 'Absolute Units',
             owner: {
               name: 'Mike Miceli',
@@ -101,6 +107,7 @@ export const standingsPayload = {
         {
           rank: 7,
           team: {
+            id: 'ESPN:3',
             name: 'Jennys Boyfriend',
             owner: {
               name: 'Devin Garvey',
@@ -117,6 +124,7 @@ export const standingsPayload = {
         {
           rank: 8,
           team: {
+            id: 'ESPN:4',
             name: 'The Yahoo Killer',
             owner: {
               name: 'Mark Daley',
@@ -133,6 +141,7 @@ export const standingsPayload = {
         {
           rank: 9,
           team: {
+            id: 'ESPN:5',
             name: 'Dont ever start Josh Reynolds',
             owner: {
               name: 'Shrinjoy Sahoo',
@@ -149,6 +158,7 @@ export const standingsPayload = {
         {
           rank: 10,
           team: {
+            id: 'YAHOO:5',
             name: 'DDT 2K18',
             owner: {
               name: 'Robby Loftus',
@@ -165,6 +175,7 @@ export const standingsPayload = {
         {
           rank: 11,
           team: {
+            id: 'ESPN:6',
             name: 'Running Back by Committee',
             owner: {
               name: 'Donny Barnas',
@@ -181,6 +192,7 @@ export const standingsPayload = {
         {
           rank: 12,
           team: {
+            id: 'YAHOO:6',
             name: 'Ajayi Feel Like a Woman',
             owner: {
               name: 'Sean Mitsock',
@@ -197,6 +209,7 @@ export const standingsPayload = {
         {
           rank: 13,
           team: {
+            id: 'ESPN:7',
             name: 'All Hail the Vi Kings',
             owner: {
               name: 'Brian Rosinski',
@@ -213,6 +226,7 @@ export const standingsPayload = {
         {
           rank: 14,
           team: {
+            id: 'ESPN:8',
             name: 'Thad Castle for President',
             owner: {
               name: 'Alek Pouliopoulos',
@@ -229,6 +243,7 @@ export const standingsPayload = {
         {
           rank: 15,
           team: {
+            id: 'ESPN:9',
             name: 'Team Biscuit',
             owner: {
               name: 'Tommy Grip',
@@ -245,6 +260,7 @@ export const standingsPayload = {
         {
           rank: 16,
           team: {
+            id: 'YAHOO:7',
             name: '2 Squids 1 Dress',
             owner: {
               name: 'Derek Lavigne',
@@ -261,6 +277,7 @@ export const standingsPayload = {
         {
           rank: 17,
           team: {
+            id: 'YAHOO:8',
             name: 'Ajayi Feel Pretty',
             owner: {
               name: 'Ryan Hurley',
@@ -277,6 +294,7 @@ export const standingsPayload = {
         {
           rank: 18,
           team: {
+            id: 'ESPN:10',
             name: 'Team Chief Pits ',
             owner: {
               name: 'Dan Lawson',
@@ -293,6 +311,7 @@ export const standingsPayload = {
         {
           rank: 19,
           team: {
+            id: 'YAHOO:9',
             name: 'Clown ina Gown',
             owner: {
               name: 'Scott Herald',
@@ -309,6 +328,7 @@ export const standingsPayload = {
         {
           rank: 20,
           team: {
+            id: 'YAHOO:10',
             name: 'Team Wasko',
             owner: {
               name: 'Andrew Wasko',

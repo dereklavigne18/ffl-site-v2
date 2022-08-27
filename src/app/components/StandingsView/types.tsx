@@ -1,4 +1,5 @@
 export interface TeamRecord {
+  teamId: number;
   rank: number;
   teamName: string;
   ownerName: string;

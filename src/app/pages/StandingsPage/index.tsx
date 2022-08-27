@@ -4,18 +4,9 @@
  *
  */
 import React, { memo } from 'react';
-import styled from 'styled-components/macro';
 
-import { Standings } from '../../containers/StandingsContainer/Loadable';
+import { Dashboard } from 'app/containers/Dashboard';
 
-interface Props {}
-
-export const StandingsPage = memo((props: Props) => {
-  return (
-    <Div>
-      <Standings year={2018} />
-    </Div>
-  );
+export const StandingsPage = memo(() => {
+  return <Dashboard />;
 });
-
-const Div = styled.div``;
