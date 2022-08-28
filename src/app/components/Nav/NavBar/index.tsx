@@ -21,8 +21,8 @@ export const NavBar = memo(({ children }: Props) => {
         {children}
       </BsNav>
       <BsNav className="ms-auto">
-        <BsNav.Link href="/">ESPN</BsNav.Link>
-        <BsNav.Link href="/">Yahoo</BsNav.Link>
+        <BsNav.Link href="https://fantasy.espn.com/football/league?leagueId=1363114">ESPN</BsNav.Link>
+        <BsNav.Link href="https://fantasy.espn.com/football/league?leagueId=1372219">Yahoo</BsNav.Link>
       </BsNav>
     </BsNavBar>
   );
