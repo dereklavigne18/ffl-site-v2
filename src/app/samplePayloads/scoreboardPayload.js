@@ -1,186 +1,186 @@
-{
-  "data": {
-    "scoreboard": [
+export const scoreboardPayload = {
+  data: {
+    scoreboard: [
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "2 Squids 1 Dress"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:7',
+            },
           },
-          "points": 124.8
+          points: 124.8,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Dont ever start Josh Reynolds"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:5',
+            },
           },
-          "points": 129.4
-        }
+          points: 129.4,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Ajayi Feel Like a Woman"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:8',
+            },
           },
-          "points": 116.3
+          points: 116.3,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Running Back by Committee"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:6',
+            },
           },
-          "points": 71.1
-        }
+          points: 71.1,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Frank's  Dead"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:2',
+            },
           },
-          "points": 167.6
+          points: 167.6,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Jennys Boyfriend"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:3',
+            },
           },
-          "points": 109.5
-        }
+          points: 109.5,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Ajayi Feel Pretty"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:6',
+            },
           },
-          "points": 86.9
+          points: 86.9,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "All Hail the Vi Kings"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:7',
+            },
           },
-          "points": 123.7
-        }
+          points: 123.7,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Absolute Units"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:4',
+            },
           },
-          "points": 135.6
+          points: 135.6,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "The Yahoo Killer"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:4',
+            },
           },
-          "points": 123.6
-        }
+          points: 123.6,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "DDT 2K18"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:5',
+            },
           },
-          "points": 122.7
+          points: 122.7,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Team Chief Pits "
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:10',
+            },
           },
-          "points": 129.1
-        }
+          points: 129.1,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Team Wasko"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:10',
+            },
           },
-          "points": 114.8
+          points: 114.8,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Trash  Cans"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:1',
+            },
           },
-          "points": 131
-        }
+          points: 131,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Flopper Gunner"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:3',
+            },
           },
-          "points": 113
+          points: 113,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Team Biscuit"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:9',
+            },
           },
-          "points": 92.8
-        }
+          points: 92.8,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Clown ina Gown"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:9',
+            },
           },
-          "points": 92.6
+          points: 92.6,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Team Barnas"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:2',
+            },
           },
-          "points": 128
-        }
+          points: 128,
+        },
       },
       {
-        "homeScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Ajayi Swept The Division"
-            }
+        homeScore: {
+          teamRecord: {
+            team: {
+              id: 'YAHOO:1',
+            },
           },
-          "points": 114.6
+          points: 114.6,
         },
-        "awayScore": {
-          "teamRecord": {
-            "team": {
-              "name": "Thad Castle for President"
-            }
+        awayScore: {
+          teamRecord: {
+            team: {
+              id: 'ESPN:8',
+            },
           },
-          "points": 75.5
-        }
-      }
-    ]
-  }
-}
+          points: 75.5,
+        },
+      },
+    ],
+  },
+};

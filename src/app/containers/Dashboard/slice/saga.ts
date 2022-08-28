@@ -1,10 +1,17 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { standingsPayload } from 'app/samplePayloads/standingsPayload';
+import { scoreboardPayload } from 'app/samplePayloads/scoreboardPayload';
 
 import slice from './slice';
 
-const { setLoadingRecords, setRecords, setTeams } = slice.actions;
+const {
+  setLoadingRecords,
+  setLoadingMatchups,
+  setMatchups,
+  setRecords,
+  setTeams,
+} = slice.actions;
 
 // Services - they should be moved out of here
 async function fetchTeamRecords() {
@@ -13,10 +20,11 @@ async function fetchTeamRecords() {
   });
 }
 
-//async function fetchMatchups() {
-//  // Actually do the load
-//  return;
-//}
+async function fetchMatchups() {
+  return new Promise((resolve, reject) => {
+    resolve(scoreboardPayload);
+  });
+}
 
 // Data Massaging
 function extractTeamsFromRecordsResponse({ payload }) {
@@ -44,6 +52,21 @@ function extractRecordsFromRecordsResponse({ payload }) {
   });
 }
 
+function denormalizeMatchupsResponse({ payload }) {
+  return payload.data.scoreboard.map(m => {
+    return {
+      home: {
+        teamId: m.homeScore.teamRecord.team.id,
+        points: m.homeScore.points,
+      },
+      away: {
+        teamId: m.awayScore.teamRecord.team.id,
+        points: m.awayScore.points,
+      },
+    };
+  });
+}
+
 // Saga actions
 function* loadRecords() {
   yield put(setLoadingRecords(true));
@@ -59,11 +82,24 @@ function* loadRecords() {
   yield put(setLoadingRecords(false));
 }
 
+function* loadMatchups() {
+  yield put(setLoadingMatchups(true));
+
+  try {
+    const response = yield call(() => fetchMatchups());
+    yield put(setMatchups(denormalizeMatchupsResponse({ payload: response })));
+  } catch (e) {} // In the future we'll want to handle this with a user prompt
+
+  yield put(setLoadingMatchups(false));
+}
+
 // Define sagas
 export const sagaTypes = {
   LOAD_RECORDS: 'LOAD_RECORDS',
+  LOAD_MATCHUPS: 'LOAD_MATCHUPS',
 };
 
 export function* dashboardSaga() {
   yield takeLatest(sagaTypes.LOAD_RECORDS, loadRecords);
+  yield takeLatest(sagaTypes.LOAD_MATCHUPS, loadMatchups);
 }

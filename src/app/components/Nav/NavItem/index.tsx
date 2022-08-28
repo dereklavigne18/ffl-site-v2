@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const NavItem = memo(({ displayName, url }: Props) => {
-  return (<BsNav.Link href={url}>{displayName}</BsNav.Link>);
+  return <BsNav.Link href={url}>{displayName}</BsNav.Link>;
 });
 
 const Div = styled.div``;

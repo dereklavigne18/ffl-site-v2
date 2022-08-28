@@ -24,7 +24,9 @@ export const StandingsRow = memo(
         <td>{rank}</td>
         <td>{teamName}</td>
         <td>{ownerName}</td>
-        <td>{wins}-{losses}-{ties}</td>
+        <td>
+          {wins}-{losses}-{ties}
+        </td>
         <td>{pointsFor}</td>
         <td>{pointsAgainst}</td>
       </tr>

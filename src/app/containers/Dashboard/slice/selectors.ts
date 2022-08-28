@@ -54,7 +54,7 @@ function enrichRecords(state) {
 }
 
 function enrichMatchups(state) {
-  const teams = selectTeams(state);
+  const teams = state.teams;
 
   return state.matchups.map(m => {
     const ht = teams[m.home.teamId];
