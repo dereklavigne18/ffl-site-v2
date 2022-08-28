@@ -22,11 +22,12 @@ export const ScoreboardView = memo(({ matchups }: Props) => {
   }, []);
 
   return (
-    <div>
+    <Div>
       <div>Week 14 Scores</div>
       <table>
         <thead>
           <tr>
+            <th>Rank</th>
             <th>Team</th>
             <th>Score</th>
           </tr>
@@ -34,16 +35,24 @@ export const ScoreboardView = memo(({ matchups }: Props) => {
         <tbody>
           { denormalized.map(matchup => (
             <tr key={matchup.rank}>
-              <td>{matchup.rank} {matchup.teamName}</td>
+              <td>{matchup.rank}</td>
+              <td>{matchup.teamName}</td>
               <td>{matchup.points}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </Div>
   );
 });
 
-const Div = styled.div``;
+const Div = styled.div`
+    // Outline
+    border: 1px solid black;
+    padding: 10px;
+
+    // Text
+    font-size: 12px;
+`;
 
 

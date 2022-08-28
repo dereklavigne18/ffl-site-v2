@@ -18,6 +18,7 @@ import { HomePage } from './pages/HomePage/Loadable';
 import { StandingsPage } from './pages/StandingsPage/Loadable';
 
 // Components
+import { Footer } from './components/Footer/Loadable';
 import { NavBar, NavItem } from './components/Nav/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 
@@ -46,6 +47,8 @@ export function App() {
         <Route exact path="/standings" component={StandingsPage} />
         <Route component={NotFoundPage} />
       </Switch>
+
+      <Footer />
       <GlobalStyle />
     </BrowserRouter>
   );

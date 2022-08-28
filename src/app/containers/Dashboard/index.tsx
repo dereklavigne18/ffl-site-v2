@@ -5,6 +5,7 @@
  */
 import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components/macro';
 
 import { ScoreboardView } from 'app/components/ScoreboardView/Loadable';
 import { StandingsView } from 'app/components/StandingsView/Loadable';
@@ -48,21 +49,28 @@ export const Dashboard = memo(() => {
   return (
     <Container>
       <Row>
-        <Col sm={6} md={6} lg={6} xl={6} xxl={6}>
+        <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
+          <h1>Standings</h1>
           {loadingRecords ? (
             <div>Loading...</div>
           ) : (
             <StandingsView teamRecords={records} />
           )}
         </Col>
-        <Col sm={{span:3, offset:3 }} md={{span:3, offset:3 }} lg={{span:3, offset:3 }} xl={{span:3, offset:3 }} xxl={{span:3, offset:3 }}>
-          {loadingMatchups ? (
-            <div>Loading...</div>
-          ) : (
-            <ScoreboardView matchups={matchups} />
-          )}
+        <Col sm={{span:3, offset:1 }} md={{span:3, offset:1 }} lg={{span:3, offset:1 }} xl={{span:3, offset:1 }} xxl={{span:3, offset:1 }}>
+          <Div>
+              {loadingMatchups ? (
+                <div>Loading...</div>
+              ) : (
+                <ScoreboardView matchups={matchups} />
+              )}
+          </Div>
         </Col>
       </Row>
     </Container>
   );
 });
+
+const Div = styled.div`
+  padding-top: 90px;
+`;

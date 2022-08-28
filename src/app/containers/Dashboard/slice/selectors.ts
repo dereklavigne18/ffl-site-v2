@@ -43,6 +43,7 @@ function enrichRecords(state) {
     return {
       teamId: team.id,
       teamName: team.name,
+      ownerName: team.ownerName,
       rank: team.rank,
       wins: tr.wins,
       losses: tr.losses,
