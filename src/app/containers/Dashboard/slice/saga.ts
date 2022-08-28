@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { standingsPayload } from 'app/samplePayloads/standingsPayload';
-import { scoreboardPayload } from 'app/samplePayloads/scoreboardPayload';
+import { fetchTeamRecords } from 'app/services/standings';
+import { fetchMatchups } from 'app/services/scoreboard';
 
 import slice from './slice';
 
@@ -12,19 +12,6 @@ const {
   setRecords,
   setTeams,
 } = slice.actions;
-
-// Services - they should be moved out of here
-async function fetchTeamRecords() {
-  return new Promise((resolve, reject) => {
-    resolve(standingsPayload);
-  });
-}
-
-async function fetchMatchups() {
-  return new Promise((resolve, reject) => {
-    resolve(scoreboardPayload);
-  });
-}
 
 // Data Massaging
 function extractTeamsFromRecordsResponse({ payload }) {
