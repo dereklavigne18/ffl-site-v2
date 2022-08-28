@@ -6,6 +6,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
+import Table from 'react-bootstrap/Table';
+
 import { TeamRecord } from '../types';
 import { StandingsRow } from '../StandingsRow/index';
 
@@ -40,5 +42,3 @@ export const StandingsTable = memo(({ teamRecords }: Props) => {
     </Table>
   );
 });
-
-const Table = styled.table``;

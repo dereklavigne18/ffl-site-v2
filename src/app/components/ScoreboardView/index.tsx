@@ -6,6 +6,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
+import Table from 'react-bootstrap/Table';
+
 import { Matchup, TeamScore } from './types';
 
 
@@ -24,7 +26,7 @@ export const ScoreboardView = memo(({ matchups }: Props) => {
   return (
     <Div>
       <div>Week 14 Scores</div>
-      <table>
+      <Table size="sm">
         <thead>
           <tr>
             <th>Rank</th>
@@ -41,7 +43,7 @@ export const ScoreboardView = memo(({ matchups }: Props) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </Div>
   );
 });

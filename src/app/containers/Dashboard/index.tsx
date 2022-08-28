@@ -47,30 +47,38 @@ export const Dashboard = memo(() => {
   const records = useSelector(selectRecords);
 
   return (
-    <Container>
-      <Row>
-        <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
-          <h1>Standings</h1>
-          {loadingRecords ? (
-            <div>Loading...</div>
-          ) : (
-            <StandingsView teamRecords={records} />
-          )}
-        </Col>
-        <Col sm={{span:3, offset:1 }} md={{span:3, offset:1 }} lg={{span:3, offset:1 }} xl={{span:3, offset:1 }} xxl={{span:3, offset:1 }}>
-          <Div>
-              {loadingMatchups ? (
-                <div>Loading...</div>
-              ) : (
-                <ScoreboardView matchups={matchups} />
-              )}
-          </Div>
-        </Col>
-      </Row>
-    </Container>
+    <Div>
+      <Container>
+        <Row>
+          <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
+            <h1>Standings</h1>
+            {loadingRecords ? (
+              <div>Loading...</div>
+            ) : (
+              <StandingsView teamRecords={records} />
+            )}
+          </Col>
+          <Col sm={{span:3, offset:1 }} md={{span:3, offset:1 }} lg={{span:3, offset:1 }} xl={{span:3, offset:1 }} xxl={{span:3, offset:1 }}>
+            <ScoreboardDiv>
+                {loadingMatchups ? (
+                  <div>Loading...</div>
+                ) : (
+                  <ScoreboardView matchups={matchups} />
+                )}
+            </ScoreboardDiv>
+          </Col>
+        </Row>
+      </Container>
+    </Div>
   );
 });
 
 const Div = styled.div`
-  padding-top: 90px;
+  background-color: white;
+  width: 100%;
+  margin: auto;
+`;
+
+const ScoreboardDiv = styled.div`
+  padding-top: 120px;
 `;

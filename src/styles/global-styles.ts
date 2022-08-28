@@ -8,10 +8,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    // Styles
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #d3d3d3;
 
     // Push content at top of page below the NavBar
-    padding-top: 70px;
+    padding-top: 50px;
   }
 
   #root {
