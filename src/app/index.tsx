@@ -38,6 +38,7 @@ export function App() {
 
       <NavBar>
         <NavItem displayName="Standings" url="/standings" />
+        <NavItem displayName="Stats" url="/" />
       </NavBar>
 
       <Switch>

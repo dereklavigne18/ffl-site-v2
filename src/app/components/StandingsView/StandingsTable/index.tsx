@@ -21,12 +21,24 @@ export const StandingsTable = memo(({ teamRecords }: Props) => {
   });
 
   return (
-    <Div>
-      {sortedRecords.map(teamRecord => (
-        <StandingsRow key={teamRecord.teamId} {...teamRecord} />
-      ))}
-    </Div>
+    <Table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Team</th>
+          <th>Owner</th>
+          <th>Record</th>
+          <th>Points For</th>
+          <th>Points Against</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sortedRecords.map(teamRecord => (
+          <StandingsRow key={teamRecord.teamId} {...teamRecord} />
+        ))}
+      </tbody>
+    </Table>
   );
 });
 
-const Div = styled.div``;
+const Table = styled.table``;

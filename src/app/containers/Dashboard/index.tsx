@@ -30,7 +30,6 @@ export const Dashboard = memo(() => {
 
   return (
     <div>
-      <div>Year: {year}</div>
       {loadingRecords ? (
         <div>Loading...</div>
       ) : (

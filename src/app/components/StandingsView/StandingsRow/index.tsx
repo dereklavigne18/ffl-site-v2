@@ -20,10 +20,14 @@ export const StandingsRow = memo(
     pointsAgainst,
   }: TeamRecord) => {
     return (
-      <Div>
-        {rank} {teamName} {ownerName} {wins}-{losses}-{ties} {pointsFor}{' '}
-        {pointsAgainst}
-      </Div>
+      <tr>
+        <td>{rank}</td>
+        <td>{teamName}</td>
+        <td>{ownerName}</td>
+        <td>{wins}-{losses}-{ties}</td>
+        <td>{pointsFor}</td>
+        <td>{pointsAgainst}</td>
+      </tr>
     );
   },
 );

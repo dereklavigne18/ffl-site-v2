@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    // Push content at top of page below the NavBar
+    padding-top: 70px;
   }
 
   #root {

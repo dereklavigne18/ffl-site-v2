@@ -6,17 +6,15 @@
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
+import BsNav from 'react-bootstrap/Nav';
+
 interface Props {
   displayName: string;
   url: string;
 }
 
 export const NavItem = memo(({ displayName, url }: Props) => {
-  return (
-    <Div>
-      <a href={url}>{displayName}</a>
-    </Div>
-  );
+  return (<BsNav.Link href={url}>{displayName}</BsNav.Link>);
 });
 
 const Div = styled.div``;
