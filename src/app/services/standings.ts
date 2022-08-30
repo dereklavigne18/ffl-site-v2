@@ -36,7 +36,7 @@ export async function fetchTeamRecords() {
 
   const response = await fetchFromGraphQLApi(
     query,
-    { year: 2021, week: 14, },
+    { year: 2021, week: 15, },
   );
 
   return await response.json();

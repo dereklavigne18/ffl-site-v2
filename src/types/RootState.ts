@@ -1,4 +1,4 @@
-import { DashboardState } from 'app/containers/Dashboard/slice/types';
+import { DashboardState } from 'app/components/Dashboard/slice/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 /* 

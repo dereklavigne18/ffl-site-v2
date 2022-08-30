@@ -6,6 +6,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
+import { theme } from 'styles/global-styles';
+
 interface Props {}
 
 export const Footer = memo((props: Props) => {
@@ -28,8 +30,12 @@ const Div = styled.div`
   width: 100%;
 
   // Borders
-  border-top: 1px solid black;
+  border-top: 1px solid white;
 
   // Content Position (Centered)
   text-align: center;
+
+  // Colors
+  background-color: ${theme.primaryBackgroundColor};
+  color: ${theme.regularTextColor};
 `;

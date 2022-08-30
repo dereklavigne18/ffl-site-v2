@@ -6,7 +6,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components/macro';
 
-import Table from 'react-bootstrap/Table';
+import { Section } from 'app/components/generics/Section/Loadable';
+import { Table, TableSize } from 'app/components/generics/Table/Loadable';
 
 import { Matchup, TeamScore } from './types';
 
@@ -23,18 +24,18 @@ export const ScoreboardView = memo(({ matchups }: Props) => {
     return d;
   }, []);
 
+  // I need to shrink the text here
   return (
-    <Div>
-      <div>Week 14 Scores</div>
-      <Table size="sm">
-        <thead>
+    <Section>
+      <Table size={TableSize.SM}>
+        <THead>
           <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Score</th>
+            <th>RANK</th>
+            <th>TEAM</th>
+            <th>SCORE</th>
           </tr>
-        </thead>
-        <tbody>
+        </THead>
+        <TBody>
           { denormalized.map(matchup => (
             <tr key={matchup.rank}>
               <td>{matchup.rank}</td>
@@ -42,19 +43,20 @@ export const ScoreboardView = memo(({ matchups }: Props) => {
               <td>{matchup.points}</td>
             </tr>
           ))}
-        </tbody>
+        </TBody>
       </Table>
-    </Div>
+    </Section>
   );
 });
 
-const Div = styled.div`
-    // Outline
-    border: 1px solid black;
-    padding: 10px;
 
-    // Text
-    font-size: 12px;
+const TBody = styled.tbody`
+color: #b0bef7;
+font-family: Roboto;
 `;
 
+const THead = styled.thead`
+color: white;
+font-family: Roboto;
+`;
 
