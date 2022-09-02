@@ -28,7 +28,7 @@ query scoreboard($year: Int!, $week: Int!) {
 }
 `;
 
-export async function fetchMatchups() {
+export async function fetchMatchups(season, week) {
   if (false) { // If testing we can just turn this on for some static sample data
     return new Promise((resolve, reject) => {
       resolve(scoreboardPayload);
@@ -37,7 +37,7 @@ export async function fetchMatchups() {
 
   const response = await fetchFromGraphQLApi(
     query,
-    { year: 2021, week: 15, },
+    { year: season, week: week, },
   );
 
   return await response.json();

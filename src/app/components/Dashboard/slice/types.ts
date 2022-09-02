@@ -29,15 +29,24 @@ export interface Matchup {
   away: TeamScore;
 }
 
+export interface Season {
+  weeks: number[];
+}
+
+export interface SeasonMap {
+  [year: number]: Season;
+}
+
 export interface DashboardState {
   // UI Controls
   selectedSeason: number;
+  selectedWeek: number;
   loadingRecords: boolean;
   loadingMatchups: boolean;
+  loadingSeasons: boolean;
 
   // Data Objects
-  availableSeasons: number[];
-  currentWeek: number;
+  seasons: SeasonMap;
   teams: TeamMap;
   records: TeamRecord[];
   matchups: Matchup[];

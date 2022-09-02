@@ -1,10 +1,14 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { DashboardState, Matchup, Team, TeamMap, TeamRecord } from './types';
+import { DashboardState, Matchup, SeasonMap, Team, TeamMap, TeamRecord } from './types';
 
 // Reducers
 function setSelectedSeason(state, action: PayloadAction<number>) {
   state.selectedSeason = action.payload;
+}
+
+function setSelectedWeek(state, action: PayloadAction<number>) {
+  state.selectedWeek = action.payload;
 }
 
 function setLoadingRecords(state, action: PayloadAction<boolean>) {
@@ -15,12 +19,12 @@ function setLoadingMatchups(state, action: PayloadAction<boolean>) {
   state.loadingMatchups = action.payload;
 }
 
-function setAvailableSeasons(state, action: PayloadAction<number[]>) {
-  state.availableSeasons = action.payload;
+function setLoadingSeasons(state, action: PayloadAction<boolean>) {
+  state.loadingSeasons = action.payload;
 }
 
-function setCurrentWeek(state, action: PayloadAction<number>) {
-  state.currentWeek = action.payload;
+function setSeasons(state, action: PayloadAction<SeasonMap>) {
+  state.seasons = action.payload;
 }
 
 function setTeams(state, action: PayloadAction<Team[]>) {
@@ -37,10 +41,11 @@ function setMatchups(state, action: PayloadAction<Matchup[]>) {
 
 export const initialState: DashboardState = {
   selectedSeason: 0,
+  selectedWeek: 0,
   loadingRecords: false,
   loadingMatchups: false,
-  availableSeasons: [],
-  currentWeek: 0,
+  loadingSeasons: true,
+  seasons: {} as SeasonMap,
   teams: {} as TeamMap,
   records: [],
   matchups: [],
@@ -51,10 +56,11 @@ const slice = createSlice({
   initialState,
   reducers: {
     setSelectedSeason,
+    setSelectedWeek,
     setLoadingRecords,
     setLoadingMatchups,
-    setAvailableSeasons,
-    setCurrentWeek,
+    setLoadingSeasons,
+    setSeasons,
     setTeams,
     setRecords,
     setMatchups,

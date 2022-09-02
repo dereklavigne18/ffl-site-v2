@@ -12,6 +12,10 @@ export const selectSelectedSeason = createSelector(
   [selectDashboard],
   state => state.selectedSeason,
 );
+export const selectSelectedWeek = createSelector(
+  [selectDashboard],
+  state => state.selectedWeek,
+);
 export const selectLoadingRecords = createSelector(
   [selectDashboard],
   state => state.loadingRecords,
@@ -20,16 +24,46 @@ export const selectLoadingMatchups = createSelector(
   [selectDashboard],
   state => state.loadingMatchups,
 );
+export const selectLoadingSeasons = createSelector(
+  [selectDashboard],
+  state => state.loadingSeasons,
+);
 
 // Data
-export const selectAvailableSeasons = createSelector(
+export const selectSeasons = createSelector(
   [selectDashboard],
-  state => state.availableSeasons,
+  state => {
+    const years: number[] = [];
+    for (const year in state.seasons) {
+      years.push(Number(year));
+    }
+
+    return years;
+  },
 );
-export const selectCurrentWeek = createSelector(
+export const selectWeeksInCurrentSeason = createSelector(
   [selectDashboard],
-  state => state.currentWeek,
+  state => {
+     if (state.selectedSeason in state.seasons) {
+       return state.seasons[state.selectedSeason].weeks;
+     }
+
+     return [];
+  },
 );
+export const selectLatestWeekInSeason = (season: number) => {
+  return createSelector(
+    [selectDashboard],
+    state => {
+      if (season in state.seasons && season == 2022) {
+        const weeks = state.seasons[season].weeks;
+        return weeks[weeks.length - 1];
+      }
+
+      return 0;
+    }
+  );
+}
 
 const selectTeams = createSelector([selectDashboard], state => state.teams);
 

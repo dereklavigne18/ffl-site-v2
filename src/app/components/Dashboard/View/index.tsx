@@ -12,49 +12,71 @@ import Row from 'react-bootstrap/Row';
 
 import { theme } from 'styles/global-styles';
 
+import { Select, SelectSize } from 'app/components/generics/Select/Loadable';
 import { ScoreboardView } from 'app/components/ScoreboardView/Loadable';
 import { StandingsView } from 'app/components/StandingsView/Loadable';
 
 import { Matchup, TeamRecord } from './types';
 
+interface OnChangeSeason {
+  (season: number): void;
+}
 
 interface Props {
+  loadingSeasons: boolean,
+  seasons: number[];
+  selectedSeason: number;
+  onChangeSeason: OnChangeSeason;
+  weeksInSeason: number[];
+  selectedWeek: number;
   loadingMatchups: boolean;
-  loadingRecords: boolean;
   matchups: Matchup[];
   records: TeamRecord[];
+  loadingRecords: boolean;
 }
 
 export const View = memo(({
+  loadingSeasons,
+  seasons,
+  selectedSeason,
+  onChangeSeason,
+  weeksInSeason,
+  selectedWeek,
   loadingMatchups,
-  loadingRecords,
   matchups,
+  loadingRecords,
   records,
 }: Props) => {
   return (
     <Div>
       <StandingsHeader>SEASON DASHBOARD</StandingsHeader>
-      <Container>
-        <Row>
-          <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
-            {loadingRecords ? (
-              <div>Loading...</div>
-            ) : (
-              <StandingsView teamRecords={records} />
-            )}
-          </Col>
-          <Col sm={{span:4, offset:0 }} md={{span:4, offset:0 }} lg={{span:4, offset:0 }} xl={{span:4, offset:0 }} xxl={{span:4, offset:0 }}>
-            <ScoreboardDiv>
-              Week <select><option>14</option></select> Scores
-              {loadingMatchups ? (
+      {loadingSeasons ? <div>Loading...</div>
+      : (
+        <Container>
+          <Row>
+            <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
+              <Select selectedValue={selectedSeason} size={SelectSize.SM} disabled={loadingRecords} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeSeason(Number(e.target.value))} >
+                {seasons.map(season => <option key={season} value={season}>Season {season}</option>)}
+              </Select>
+              {loadingRecords ? (
                 <div>Loading...</div>
               ) : (
-                <ScoreboardView matchups={matchups} />
+                <StandingsView teamRecords={records} />
               )}
-            </ScoreboardDiv>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+            <Col sm={{span:4, offset:0 }} md={{span:4, offset:0 }} lg={{span:4, offset:0 }} xl={{span:4, offset:0 }} xxl={{span:4, offset:0 }}>
+              <ScoreboardDiv>
+                Week <select><option>14</option></select> Scores
+                {loadingMatchups ? (
+                  <div>Loading...</div>
+                ) : (
+                  <ScoreboardView matchups={matchups} />
+                )}
+              </ScoreboardDiv>
+            </Col>
+          </Row>
+        </Container>
+      )}
     </Div>
   );
 });

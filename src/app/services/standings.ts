@@ -27,7 +27,7 @@ query standings($year: Int!, $week: Int!) {
 }
 `;
 
-export async function fetchTeamRecords() {
+export async function fetchTeamRecords(season) {
   if (false) { // If testing we can just turn this on for some static sample data
     return new Promise((resolve, reject) => {
       resolve(standingsPayload);
@@ -36,7 +36,7 @@ export async function fetchTeamRecords() {
 
   const response = await fetchFromGraphQLApi(
     query,
-    { year: 2021, week: 15, },
+    { year: season, week: 0, },
   );
 
   return await response.json();

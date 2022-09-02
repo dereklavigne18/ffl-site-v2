@@ -8,28 +8,55 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { View } from './View/index';
 import { useDashboardSlice } from './slice';
-import { loadMatchups, loadRecords } from './slice/actions';
-import { selectLoadingMatchups, selectLoadingRecords, selectMatchups, selectRecords } from './slice/selectors';
+import {
+  selectLoadingMatchups,
+  selectLoadingRecords,
+  selectLoadingSeasons,
+  selectMatchups,
+  selectRecords,
+  selectSeasons,
+  selectWeeksInCurrentSeason,
+  selectLatestWeekInSeason,
+  selectSelectedSeason,
+  selectSelectedWeek,
+} from './slice/selectors';
 
 
 export const Dashboard = memo(() => {
   // Config to slice
-  useDashboardSlice();
+  const {
+    loadMatchups,
+    loadRecords,
+    loadSeasons,
+    setSelectedSeason,
+  } = useDashboardSlice();
   const dispatch = useDispatch();
 
-  const year = 2016;
-
-  // On initial render we need to fetch a bunch of data
-  useEffect(() => {
-    dispatch(loadRecords());
-    dispatch(loadMatchups());
-  }, [dispatch, year]);
-
   // Selectors
-  const loadingMatchups = useSelector(selectLoadingMatchups);
-  const loadingRecords = useSelector(selectLoadingRecords);
-  const matchups = useSelector(selectMatchups);
-  const records = useSelector(selectRecords);
+  const selectedSeason = useSelector(selectSelectedSeason);
+  const latestWeekInSeason = useSelector(selectLatestWeekInSeason(selectedSeason));
 
-  return <View loadingMatchups={loadingMatchups} loadingRecords={loadingRecords} matchups={matchups} records={records} />;
+  // Hooks to load things when items change
+  useEffect(() => {
+    dispatch(loadSeasons());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(loadRecords(selectedSeason, latestWeekInSeason));
+  }, [dispatch, selectedSeason]);
+  useEffect(() => {
+    dispatch(loadMatchups(selectedSeason, latestWeekInSeason));
+  }, [dispatch, selectedSeason, latestWeekInSeason])
+
+  return <View
+    loadingSeasons={useSelector(selectLoadingSeasons)}
+    seasons={useSelector(selectSeasons)}
+    selectedSeason={selectedSeason}
+    onChangeSeason={(season) => dispatch(setSelectedSeason(season))}
+    weeksInSeason={useSelector(selectWeeksInCurrentSeason)}
+    selectedWeek={useSelector(selectSelectedWeek)}
+    loadingRecords={useSelector(selectLoadingRecords)}
+    records={useSelector(selectRecords)}
+    matchups={useSelector(selectMatchups)}
+    loadingMatchups={useSelector(selectLoadingMatchups)}
+  />;
 });
