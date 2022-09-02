@@ -36,7 +36,7 @@ export async function fetchTeamRecords(season) {
 
   const response = await fetchFromGraphQLApi(
     query,
-    { year: season, week: 0, },
+    { year: season, week: 15, },
   );
 
   return await response.json();
