@@ -35,5 +35,10 @@ export const NavBar = memo(({ children }: Props) => {
 const Div = styled.div`
   .navbar {
     background-color: #2eade8;
+
+    .navbar-nav a {
+      color: white !important;
+      font-weight: bold !important;
+    }
   }
 `;

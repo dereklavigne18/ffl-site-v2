@@ -14,7 +14,6 @@ import { useTranslation } from 'react-i18next';
 import { GlobalStyle } from 'styles/global-styles';
 
 // Pages
-import { HomePage } from './pages/HomePage/Loadable';
 import { StandingsPage } from './pages/StandingsPage/Loadable';
 
 // Components
@@ -38,13 +37,10 @@ export function App() {
       </Helmet>
 
       <NavBar>
-        <NavItem displayName="Standings" url="/standings" />
-        <NavItem displayName="Stats" url="/" />
       </NavBar>
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/standings" component={StandingsPage} />
+        <Route exact path="/" component={StandingsPage} />
         <Route component={NotFoundPage} />
       </Switch>
 

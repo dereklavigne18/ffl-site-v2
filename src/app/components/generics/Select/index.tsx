@@ -38,12 +38,14 @@ const Div = styled.div`
   width: 20%;
 
   select {
-    background-color: ${theme.titleTextColor};
+//    background-color: ${theme.titleTextColor};
+    background-color: #2eade8;
+    color: white;
     font-weight: bold;
   }
 
   option {
-    background-color: ${theme.headerTextColor};
+    background-color: #2eade8;
     font-weight: bold;
   }
 `;

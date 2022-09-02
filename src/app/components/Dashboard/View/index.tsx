@@ -66,11 +66,10 @@ export const View = memo(({
             </Col>
             <Col sm={{span:4, offset:0 }} md={{span:4, offset:0 }} lg={{span:4, offset:0 }} xl={{span:4, offset:0 }} xxl={{span:4, offset:0 }}>
               <ScoreboardDiv>
-                Week <select><option>14</option></select> Scores
                 {loadingMatchups ? (
                   <div>Loading...</div>
                 ) : (
-                  <ScoreboardView matchups={matchups} />
+                  <ScoreboardView matchups={matchups} weeks={weeksInSeason} />
                 )}
               </ScoreboardDiv>
             </Col>
