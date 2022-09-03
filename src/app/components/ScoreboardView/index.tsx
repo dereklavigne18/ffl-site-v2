@@ -9,8 +9,9 @@ import styled from 'styled-components/macro';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Pagination from 'react-bootstrap/Pagination';
+import BsPagination from 'react-bootstrap/Pagination';
 
+import { Pagination, PaginationSize } from 'app/components/generics/Pagination/Loadable';
 import { Section } from 'app/components/generics/Section/Loadable';
 import { Table, TableSize } from 'app/components/generics/Table/Loadable';
 
@@ -36,18 +37,18 @@ export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
       <Container>
         <Row>
           <Col>
-              <Pagination size="sm">
-                <Pagination.First />
-                <Pagination.Prev />
+              <Pagination size={PaginationSize.SM}>
+                <BsPagination.First />
+                <BsPagination.Prev />
               </Pagination>
           </Col>
           <Col>
             <div>WEEK 10</div>
           </Col>
           <Col>
-              <Pagination size="sm">
-                <Pagination.Next />
-                <Pagination.Last />
+              <Pagination size={PaginationSize.SM}>
+                <BsPagination.Next />
+                <BsPagination.Last />
               </Pagination>
           </Col>
         </Row>
