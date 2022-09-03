@@ -24,9 +24,24 @@ interface Props {
 }
 
 export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
-  const denormalized = matchups.reduce((d: TeamScore[], m) => {
-    d.push(m.home);
-    d.push(m.away);
+  const scoreRows = matchups.reduce((d: React.ReactNode[], m) => {
+    const h = m.home;
+    const a = m.away;
+
+    d.push(
+      <HomeScore key={h.rank}>
+        <td>{h.rank}</td>
+        <td>{h.teamName}</td>
+        <td>{h.points}</td>
+      </HomeScore>
+    );
+    d.push(
+      <AwayScore key={a.rank}>
+        <td>{a.rank}</td>
+        <td>{a.teamName}</td>
+        <td>{a.points}</td>
+      </AwayScore>
+    );
 
     return d;
   }, []);
@@ -63,15 +78,9 @@ export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
             <th>SCORE</th>
           </tr>
         </thead>
-        <tbody>
-          { denormalized.map(matchup => (
-            <tr key={matchup.rank}>
-              <td>{matchup.rank}</td>
-              <td>{matchup.teamName}</td>
-              <td>{matchup.points}</td>
-            </tr>
-          ))}
-        </tbody>
+        <TBody>
+          { scoreRows }
+        </TBody>
       </Table>
     </Section>
   );
@@ -85,4 +94,26 @@ const AlignedRight = styled.div`
 const WeekTitle = styled.div`
   font-weight: bold;
   text-align: center;
+`
+
+const HomeScore = styled.tr`
+  border-top: 1px solid #dee2e6;
+  border-bottom: 0;
+
+  td {
+    border: none;
+  }
+`;
+
+const AwayScore = styled.tr`
+  border: none;
+  border-bottom-width: 0;
+
+  td {
+    border: none;
+  }
+`;
+
+const TBody = styled.tbody`
+  border-bottom: 1px solid #dee2e6;
 `
