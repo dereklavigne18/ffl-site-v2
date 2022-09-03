@@ -43,25 +43,27 @@ export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
               </Pagination>
           </Col>
           <Col>
-            <div>WEEK 10</div>
+            <WeekTitle>WEEK 10</WeekTitle>
           </Col>
           <Col>
+            <AlignedRight>
               <Pagination size={PaginationSize.SM}>
                 <BsPagination.Next />
                 <BsPagination.Last />
               </Pagination>
+            </AlignedRight>
           </Col>
         </Row>
       </Container>
       <Table size={TableSize.SM}>
-        <THead>
+        <thead>
           <tr>
             <th>RANK</th>
             <th>TEAM</th>
             <th>SCORE</th>
           </tr>
-        </THead>
-        <TBody>
+        </thead>
+        <tbody>
           { denormalized.map(matchup => (
             <tr key={matchup.rank}>
               <td>{matchup.rank}</td>
@@ -69,20 +71,18 @@ export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
               <td>{matchup.points}</td>
             </tr>
           ))}
-        </TBody>
+        </tbody>
       </Table>
     </Section>
   );
 });
 
-
-const TBody = styled.tbody`
-color: #b0bef7;
-font-family: Roboto;
+const AlignedRight = styled.div`
+  display: flex;
+  justify-content: right;
 `;
 
-const THead = styled.thead`
-color: white;
-font-family: Roboto;
-`;
-
+const WeekTitle = styled.div`
+  font-weight: bold;
+  text-align: center;
+`
