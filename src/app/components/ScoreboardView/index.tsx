@@ -18,12 +18,23 @@ import { Table, TableSize } from 'app/components/generics/Table/Loadable';
 import { Matchup, TeamScore } from './types';
 
 
+interface OnChangeWeek {
+  (week: number): void;
+}
+
 interface Props {
   matchups: Matchup[];
   weeks: number[];
+  selectedWeek: number;
+  onChangeWeek: OnChangeWeek;
 }
 
-export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
+export const ScoreboardView = memo(({ matchups, weeks, selectedWeek, onChangeWeek }: Props) => {
+  const onClickFirstWeek = () => onChangeWeek(1);
+  const onClickDecrementWeek = () => onChangeWeek(Math.max(1, selectedWeek - 1));
+  const onClickIncrementWeek = () => onChangeWeek(Math.min(weeks[weeks.length - 1], selectedWeek + 1));
+  const onClickLastWeek = () => onChangeWeek(weeks[weeks.length - 1]);
+
   const scoreRows = matchups.reduce((d: React.ReactNode[], m) => {
     const h = m.home;
     const a = m.away;
@@ -53,18 +64,18 @@ export const ScoreboardView = memo(({ matchups, weeks }: Props) => {
         <Row>
           <Col>
               <Pagination size={PaginationSize.SM}>
-                <BsPagination.First />
-                <BsPagination.Prev />
+                <BsPagination.First onClick={onClickFirstWeek} />
+                <BsPagination.Prev onClick={onClickDecrementWeek} />
               </Pagination>
           </Col>
           <Col>
-            <WeekTitle>WEEK 10</WeekTitle>
+            <WeekTitle>WEEK {selectedWeek}</WeekTitle>
           </Col>
           <Col>
             <AlignedRight>
               <Pagination size={PaginationSize.SM}>
-                <BsPagination.Next />
-                <BsPagination.Last />
+                <BsPagination.Next onClick={onClickIncrementWeek} />
+                <BsPagination.Last onClick={onClickLastWeek} />
               </Pagination>
             </AlignedRight>
           </Col>

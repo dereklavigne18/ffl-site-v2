@@ -22,6 +22,10 @@ interface OnChangeSeason {
   (season: number): void;
 }
 
+interface OnChangeWeek {
+  (week: number): void;
+}
+
 interface Props {
   loadingSeasons: boolean,
   seasons: number[];
@@ -29,6 +33,7 @@ interface Props {
   onChangeSeason: OnChangeSeason;
   weeksInSeason: number[];
   selectedWeek: number;
+  onChangeWeek: OnChangeWeek;
   loadingMatchups: boolean;
   matchups: Matchup[];
   records: TeamRecord[];
@@ -42,6 +47,7 @@ export const View = memo(({
   onChangeSeason,
   weeksInSeason,
   selectedWeek,
+  onChangeWeek,
   loadingMatchups,
   matchups,
   loadingRecords,
@@ -69,7 +75,7 @@ export const View = memo(({
                 {loadingMatchups ? (
                   <div>Loading...</div>
                 ) : (
-                  <ScoreboardView matchups={matchups} weeks={weeksInSeason} />
+                  <ScoreboardView matchups={matchups} weeks={weeksInSeason} selectedWeek={selectedWeek} onChangeWeek={onChangeWeek} />
                 )}
               </ScoreboardDiv>
             </Col>

@@ -93,14 +93,13 @@ function* loadSeasons() {
 
   try {
     const response = yield call(() => fetchSeasons());
-    yield put(setSelectedSeason(response.data.currentSeason));
-    yield put(setSelectedWeek(response.data.currentWeek));
-
     const s = response.data.seasons.reduce((result, season) => {
       result[season.year] = { weeks: season.weeks };
       return result;
     }, {});
     yield put(setSeasons(s));
+
+    yield put(setSelectedSeason(response.data.currentSeason));
   } catch (e) {} // In the future we'll want to handle this with a user prompt
 
   yield put(setLoadingSeasons(false));

@@ -21,6 +21,11 @@ const slice = createSlice({
   reducers: {
     setSelectedSeason(state, action: PayloadAction<number>) {
       state.selectedSeason = action.payload;
+
+      if (state.selectedSeason in state.seasons) {
+        const weeks = state.seasons[state.selectedSeason].weeks;
+        state.selectedWeek = weeks[weeks.length - 1];
+      }
     },
     setSelectedWeek(state, action: PayloadAction<number>) {
       state.selectedWeek = action.payload;

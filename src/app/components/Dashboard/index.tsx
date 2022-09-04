@@ -29,11 +29,13 @@ export const Dashboard = memo(() => {
     loadRecords,
     loadSeasons,
     setSelectedSeason,
+    setSelectedWeek,
   } = useDashboardSlice();
   const dispatch = useDispatch();
 
   // Selectors
   const selectedSeason = useSelector(selectSelectedSeason);
+  const selectedWeek = useSelector(selectSelectedWeek);
   const latestWeekInSeason = useSelector(selectLatestWeekInSeason(selectedSeason));
 
   // Hooks to load things when items change
@@ -42,10 +44,10 @@ export const Dashboard = memo(() => {
   }, [dispatch]);
   useEffect(() => {
     dispatch(loadRecords(selectedSeason, latestWeekInSeason));
-  }, [dispatch, selectedSeason]);
+  }, [dispatch, selectedSeason, latestWeekInSeason]);
   useEffect(() => {
-    dispatch(loadMatchups(selectedSeason, latestWeekInSeason));
-  }, [dispatch, selectedSeason, latestWeekInSeason])
+    dispatch(loadMatchups(selectedSeason, selectedWeek));
+  }, [dispatch, selectedSeason, selectedWeek])
 
   return <View
     loadingSeasons={useSelector(selectLoadingSeasons)}
@@ -54,6 +56,7 @@ export const Dashboard = memo(() => {
     onChangeSeason={(season) => dispatch(setSelectedSeason(season))}
     weeksInSeason={useSelector(selectWeeksInCurrentSeason)}
     selectedWeek={useSelector(selectSelectedWeek)}
+    onChangeWeek={(week) => dispatch(setSelectedWeek(week))}
     loadingRecords={useSelector(selectLoadingRecords)}
     records={useSelector(selectRecords)}
     matchups={useSelector(selectMatchups)}
