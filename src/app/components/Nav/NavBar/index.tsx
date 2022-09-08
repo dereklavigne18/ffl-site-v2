@@ -20,7 +20,7 @@ export const NavBar = memo(({ children }: Props) => {
     <Div>
       <BsNavBar fixed="top">
         <BsNav>
-          <BsNav.Link href="/">Home</BsNav.Link>
+          <BsNav.Link href="/"><LogoDiv><LogoImg src="/ffl-inner-colored-xs.png" />FFL</LogoDiv></BsNav.Link>
           {children}
         </BsNav>
         <BsNav className="ms-auto">
@@ -37,8 +37,19 @@ const Div = styled.div`
     background-color: #2eade8;
 
     .navbar-nav a {
-      color: white !important;
-      font-weight: bold !important;
+      color: white;
+      font-weight: bold;
     }
   }
+`;
+
+const LogoDiv = styled.div`
+  color: #835c96;
+  font-weight: 999;
+`;
+
+const LogoImg = styled.img`
+  margin-top: -5px;
+  padding-left: 15px;
+  padding-right: 10px;
 `;
