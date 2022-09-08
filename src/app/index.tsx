@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { GlobalStyle } from 'styles/global-styles';
 
 // Pages
-import { StandingsPage } from './pages/StandingsPage/Loadable';
+import { HomePage } from './pages/HomePage/Loadable';
 
 // Components
 import { Footer } from './components/Footer/Loadable';
@@ -40,7 +40,7 @@ export function App() {
       </NavBar>
 
       <Switch>
-        <Route exact path="/" component={StandingsPage} />
+        <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
 

@@ -10,7 +10,7 @@ import { Dashboard } from 'app/components/Dashboard/Loadable';
 import { Splash } from 'app/components/Splash/Loadable';
 
 
-export const StandingsPage = memo(() => {
+export const HomePage = memo(() => {
   return (
     <div>
       <Splash />
