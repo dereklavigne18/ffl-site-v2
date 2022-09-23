@@ -20,22 +20,25 @@ export const Footer = memo((props: Props) => {
 
 const Div = styled.div`
   // Spacing
-  margin-top: 1px;
-  padding: 1px;
+  margin-top: 20px;
+  padding: 3px;
 
   // Position
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
 
   // Borders
-  border-top: 1px solid white;
+  border-top: 1px solid ${theme.headerTextColor};
 
   // Content Position (Centered)
   text-align: center;
 
   // Colors
   background-color: ${theme.primaryBackgroundColor};
-  color: ${theme.regularTextColor};
+  color: ${theme.headerTextColor};
+  a {
+    color: #2eade8;
+  }
+
+  // Text
+  font-size: 11px;
 `;

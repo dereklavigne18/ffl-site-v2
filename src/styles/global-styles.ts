@@ -26,8 +26,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     // Styles
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #1b2240;
+    font-family: ${theme.regularTextFontFamily};
+    background-color: ${theme.primaryBackgroundColor};
 
     // Push content at top of page below the NavBar
     padding-top: 50px;
@@ -42,12 +42,6 @@ export const GlobalStyle = createGlobalStyle`
   #root {
     min-height: 100%;
     min-width: 100%;
-  }
-
-  p,
-  label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    line-height: 1.5em;
   }
 
   input, select {
