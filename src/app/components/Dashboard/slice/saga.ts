@@ -65,7 +65,7 @@ function* loadRecords({ season, week }: LoadRecordsInput) {
   yield put(setLoadingRecords(true));
 
   try {
-    const response = yield call(() => fetchTeamRecords(season));
+    const response = yield call(() => fetchTeamRecords(season, week));
     yield put(setTeams(extractTeamsFromRecordsResponse({ payload: response })));
     yield put(
       setRecords(extractRecordsFromRecordsResponse({ payload: response })),
