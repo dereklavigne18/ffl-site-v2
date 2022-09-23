@@ -19,5 +19,5 @@ export const Section = memo(({ children }: Props) => {
 const Div = styled.div`
   background-color: ${theme.secondaryBackgroundColor};
   padding: 10px;
-  border-radius: 2%;
+  border-radius: 20px;
 `;
