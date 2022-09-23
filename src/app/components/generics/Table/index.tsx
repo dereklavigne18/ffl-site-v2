@@ -21,10 +21,10 @@ interface Props {
 export const Table = memo(({ size = TableSize.MD, children }: Props) => {
   return size == TableSize.SM ? (
     <SmallTable>
-      <BsTable size="sm">{ children }</BsTable>
+      <BsTable size="sm" responsive="lg">{ children }</BsTable>
     </SmallTable>) : (
     <MediumTable>
-      <BsTable>{ children }</BsTable>
+      <BsTable responsive="lg">{ children }</BsTable>
     </MediumTable>
   );
 });

@@ -12,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 
 import { theme } from 'styles/global-styles';
 
+import { LoadingSymbol } from 'app/components/generics/LoadingSymbol/Loadable';
 import { Select, SelectSize } from 'app/components/generics/Select/Loadable';
 import { ScoreboardView } from 'app/components/ScoreboardView/Loadable';
 import { StandingsView } from 'app/components/StandingsView/Loadable';
@@ -56,7 +57,7 @@ export const View = memo(({
   return (
     <Div>
       <StandingsHeader>SEASON DASHBOARD</StandingsHeader>
-      {loadingSeasons ? <div>Loading...</div>
+      {loadingSeasons ? <LoadingSymbol />
       : (
         <Container>
           <Row>
@@ -65,7 +66,7 @@ export const View = memo(({
                 {seasons.map(season => <option key={season} value={season}>Season {season}</option>)}
               </Select>
               {loadingRecords ? (
-                <div>Loading...</div>
+                <LoadingSymbol />
               ) : (
                 <StandingsView teamRecords={records} />
               )}
@@ -73,7 +74,7 @@ export const View = memo(({
             <Col sm={{span:4, offset:0 }} md={{span:4, offset:0 }} lg={{span:4, offset:0 }} xl={{span:4, offset:0 }} xxl={{span:4, offset:0 }}>
               <ScoreboardDiv>
                 {loadingMatchups ? (
-                  <div>Loading...</div>
+                  <LoadingSymbol />
                 ) : (
                   <ScoreboardView matchups={matchups} weeks={weeksInSeason} selectedWeek={selectedWeek} onChangeWeek={onChangeWeek} />
                 )}
