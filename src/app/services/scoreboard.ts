@@ -37,7 +37,7 @@ export async function fetchMatchups(season, week) {
 
   const response = await fetchFromGraphQLApi(
     query,
-    { year: season, week: week, },
+    { year: season, week: week + 1, },
   );
 
   return await response.json();
