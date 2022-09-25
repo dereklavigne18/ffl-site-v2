@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'fnl';
-    src: url('http://localhost:5001/fonts/fnl/fnl-webfont.woff2') format('woff2'),
-         url('http://localhost:5001/fonts/fnl/fnl-webfont.woff') format('woff');
+    src: url('/fonts/fnl/fnl-webfont.woff2') format('woff2'),
+         url('/fonts/fnl/fnl-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

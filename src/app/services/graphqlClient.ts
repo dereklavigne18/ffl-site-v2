@@ -1,5 +1,5 @@
 export async function fetchFromGraphQLApi(query: string, variables: object) {
-  return fetch("http://localhost:3000", {
+  return fetch("/graphql", {
     method: "POST",
     headers: {
       "Accept": "*/*",

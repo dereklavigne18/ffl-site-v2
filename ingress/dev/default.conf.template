@@ -1,0 +1,14 @@
+server {
+    listen 80;
+    server_name  localhost;
+
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        proxy_pass http://site-dev:3000/;
+    }
+
+    location /graphql {
+        proxy_pass http://ffl-api-api-dev-1:3000/;
+    }
+}

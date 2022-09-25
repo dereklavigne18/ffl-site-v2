@@ -63,7 +63,7 @@
     "web-vitals": "2.1.2"
   },
   "scripts": {
-    "start": "yarn run link-modules && WATCHPACK_POLLING=true react-scripts start",
+    "start": "yarn run link-modules && WATCHPACK_POLLING=true HOST=0.0.0.0 react-scripts start",
     "build": "yarn run link-modules && react-scripts build",
     "test": "yarn run link-modules && react-scripts test",
     "eject": "yarn run link-modules && react-scripts eject",
