@@ -1,10 +1,6 @@
 ---
 version: "3.0"
 
-x-build: &x-build
-  context: .
-  dockerfile: Dockerfile
-
 services:
 
   ############################################
@@ -14,18 +10,18 @@ services:
   ############################################
   site:
     build:
-      <<: *x-build
+      context: .
       args:
         NODE_ENV: production
     image: ffl-site-v2
-    entrypoint: ["yarn", "start"]  # Likely need to change this entrypoint for prod
+    entrypoint: ["yarn", "build"]  # Likely need to change this entrypoint for prod
     networks:
       - bubble
       - earth
 
   site-dev:
     build:
-      <<: *x-build
+      context: .
       args:
         NODE_ENV: development
     image: ffl-site-v2-dev
@@ -64,7 +60,7 @@ services:
   ############################################
   dev-tool: &dev-tool
     build:
-      <<: *x-build
+      context: .
       args:
         NODE_ENV: development
     image: ffl-site-v2-dev-tool
