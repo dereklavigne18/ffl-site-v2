@@ -64,6 +64,10 @@ interface LoadRecordsInput { season: number, week: number, type: string };
 function* loadRecords({ season, week }: LoadRecordsInput) {
   yield put(setLoadingRecords(true));
 
+  if (season < 2018) {
+    return;
+  }
+
   try {
     const response = yield call(() => fetchTeamRecords(season, week));
     yield put(setTeams(extractTeamsFromRecordsResponse({ payload: response })));
@@ -78,6 +82,10 @@ function* loadRecords({ season, week }: LoadRecordsInput) {
 interface LoadMatchupsInput { season: number, week: number, type: string };
 function* loadMatchups({ season, week }: LoadMatchupsInput) {
   yield put(setLoadingMatchups(true));
+
+  if (season < 2018) {
+    return;
+  }
 
   try {
     const response = yield call(() => fetchMatchups(season, week));
