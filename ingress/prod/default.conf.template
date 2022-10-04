@@ -9,6 +9,6 @@ server {
     }
 
     location /graphql {
-        proxy_pass http://ffl-api-api-1:3000/;
+        proxy_pass http://api:3000/;
     }
 }

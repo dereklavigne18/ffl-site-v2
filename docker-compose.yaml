@@ -14,7 +14,7 @@ services:
       args:
         NODE_ENV: production
     image: ffl-site-v2
-    entrypoint: ["yarn", "build"]  # Likely need to change this entrypoint for prod
+    entrypoint: ["yarn", "start:prod"]
     networks:
       - bubble
       - earth
