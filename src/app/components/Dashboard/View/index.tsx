@@ -62,9 +62,11 @@ export const View = memo(({
         <Container>
           <Row>
             <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
-              <Select selectedValue={selectedSeason} size={SelectSize.SM} disabled={loadingRecords} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeSeason(Number(e.target.value))} >
-                {seasons.map(season => <option key={season} value={season}>Season {season}</option>)}
-              </Select>
+              <SeasonSelect>
+                <Select selectedValue={selectedSeason} size={SelectSize.SM} disabled={loadingRecords} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeSeason(Number(e.target.value))} >
+                  {seasons.map(season => <option key={season} value={season}>Season {season}</option>)}
+                </Select>
+              </SeasonSelect>
               {loadingRecords ? (
                 <LoadingSymbol />
               ) : (
@@ -106,4 +108,9 @@ const ScoreboardDiv = styled.div`
 const StandingsHeader = styled.h1`
   padding-bottom: 20px;
   text-align: center;
+`;
+
+const SeasonSelect = styled.div`
+  min-width: 120px;
+  width: 20%;
 `;
