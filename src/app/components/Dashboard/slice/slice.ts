@@ -6,8 +6,8 @@ import { DashboardState, Matchup, SeasonMap, Team, TeamMap, TeamRecord } from '.
 export const initialState: DashboardState = {
   selectedSeason: 0,
   selectedWeek: 0,
-  loadingRecords: false,
-  loadingMatchups: false,
+  loadingRecords: true,
+  loadingMatchups: true,
   loadingSeasons: true,
   seasons: {} as SeasonMap,
   teams: {} as TeamMap,

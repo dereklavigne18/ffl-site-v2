@@ -69,6 +69,9 @@ const selectTeams = createSelector([selectDashboard], state => state.teams);
 
 // Standings and scoreboard enrichment
 function enrichRecords(state) {
+  if (state.loadingRecords) {
+    return [];
+  }
   const teams = state.teams;
 
   return state.records.map(tr => {
@@ -89,6 +92,9 @@ function enrichRecords(state) {
 }
 
 function enrichMatchups(state) {
+  if (state.loadingRecords) {
+    return [];
+  }
   const teams = state.teams;
 
   return state.matchups.map(m => {
