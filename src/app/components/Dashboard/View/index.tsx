@@ -101,8 +101,7 @@ const Div = styled.div`
 `;
 
 const ScoreboardDiv = styled.div`
-  padding-top: 60px;
-  margin-left: 50px;
+  padding-top: 31px;
 `;
 
 const StandingsHeader = styled.h1`
