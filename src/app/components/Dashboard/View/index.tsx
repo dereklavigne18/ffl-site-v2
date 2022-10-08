@@ -61,17 +61,19 @@ export const View = memo(({
       : (
         <Container>
           <Row>
-            <Col sm={8} md={8} lg={8} xl={8} xxl={8}>
-              <Select selectedValue={selectedSeason} size={SelectSize.SM} disabled={loadingRecords} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeSeason(Number(e.target.value))} >
-                {seasons.map(season => <option key={season} value={season}>Season {season}</option>)}
-              </Select>
+            <Col sm={12} md={12} lg={8} xl={8} xxl={8}>
+              <SeasonSelect>
+                <Select selectedValue={selectedSeason} size={SelectSize.SM} disabled={loadingRecords} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChangeSeason(Number(e.target.value))} >
+                  {seasons.map(season => <option key={season} value={season}>Season {season}</option>)}
+                </Select>
+              </SeasonSelect>
               {loadingRecords ? (
                 <LoadingSymbol />
               ) : (
                 <StandingsView teamRecords={records} />
               )}
             </Col>
-            <Col sm={{span:4, offset:0 }} md={{span:4, offset:0 }} lg={{span:4, offset:0 }} xl={{span:4, offset:0 }} xxl={{span:4, offset:0 }}>
+            <Col sm={{span:12, offset:0 }} md={{span:12, offset:0 }} lg={{span:4, offset:0 }} xl={{span:4, offset:0 }} xxl={{span:4, offset:0 }}>
               <ScoreboardDiv>
                 {loadingMatchups ? (
                   <LoadingSymbol />
@@ -99,11 +101,15 @@ const Div = styled.div`
 `;
 
 const ScoreboardDiv = styled.div`
-  padding-top: 60px;
-  margin-left: 50px;
+  padding-top: 31px;
 `;
 
 const StandingsHeader = styled.h1`
   padding-bottom: 20px;
   text-align: center;
+`;
+
+const SeasonSelect = styled.div`
+  min-width: 120px;
+  width: 20%;
 `;

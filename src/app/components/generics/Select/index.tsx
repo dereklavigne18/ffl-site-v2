@@ -35,10 +35,7 @@ export const Select = memo(({ selectedValue, onChange, size, disabled, children 
 });
 
 const Div = styled.div`
-  width: 20%;
-
   select {
-//    background-color: ${theme.titleTextColor};
     background-color: #2eade8;
     color: white;
     font-weight: bold;

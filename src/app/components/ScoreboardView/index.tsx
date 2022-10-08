@@ -105,7 +105,7 @@ const AlignedRight = styled.div`
 const WeekTitle = styled.div`
   font-weight: bold;
   text-align: center;
-`
+`;
 
 const HomeScore = styled.tr`
   border-top: 1px solid #dee2e6;
@@ -127,4 +127,4 @@ const AwayScore = styled.tr`
 
 const TBody = styled.tbody`
   border-bottom: 1px solid #dee2e6;
-`
+`;
