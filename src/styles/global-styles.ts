@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
     h1 {
       font-family: ${theme.titleFontFamily};
       color: ${theme.titleTextColor};
-      font-size: 90px;
+      font-size: 8vw;
     }
   }
 
