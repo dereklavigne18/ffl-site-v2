@@ -64,7 +64,6 @@
   },
   "scripts": {
     "start": "yarn run link-modules && WATCHPACK_POLLING=true HOST=0.0.0.0 react-scripts start",
-    "start:prod": "yarn run build && npm install -g serve && serve -s build",
     "build": "ln -s /etc/ffl-site/node_modules /app/node_modules && react-scripts build",
     "test": "yarn run link-modules && react-scripts test",
     "eject": "yarn run link-modules && react-scripts eject",
@@ -75,7 +74,7 @@
     "lint": "yarn run link-modules && yarn run eslint src",
     "lint:fix": "yarn run link-modules && yarn run eslint --fix src",
     "lint:css": "yarn run link-modules && stylelint src/**/*.css",
-    "link-modules": "rm /app/node_modules && ln -s /etc/ffl-site/node_modules /app/node_modules",
+    "link-modules": "rm -f /app/node_modules && ln -s /etc/ffl-site/node_modules /app/node_modules",
     "generate": "yarn run link-modules && plop --plopfile internals/generators/plopfile.ts",
     "prettify": "yarn run link-modules && prettier --write",
     "reformat": "yarn run lint:fix && yarn run prettify",
