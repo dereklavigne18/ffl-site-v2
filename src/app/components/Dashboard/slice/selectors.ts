@@ -55,7 +55,8 @@ export const selectLatestWeekInSeason = (season: number) => {
   return createSelector(
     [selectDashboard],
     state => {
-      if (season in state.seasons && season == 2022) {
+      # TODO: The year below should not be hard-coded, we should base it off of current year
+      if (season in state.seasons && season == 2023) {
         const weeks = state.seasons[season].weeks;
         return weeks[weeks.length - 1];
       }
